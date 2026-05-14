@@ -5,7 +5,7 @@ import React from "react";
 export function SiteHeader() {
   return (
     <header className="sticky-header shadow-sm bg-white border-b border-gray-300 z-50">
-      <div className="max-w-[1200px] mx-auto px-4 py-3 flex flex-col md:flex-row md:items-center justify-between gap-4">
+      <div className="max-w-7xl mx-auto px-4 py-3 flex flex-col md:flex-row md:items-center justify-between gap-4">
         <div className="flex flex-col sm:flex-row items-center gap-6">
           <img
             src="/Aptia-365-RGB-Light-bg_resize+for+WCP.89a04093fc33467fac75385534b60d84.png"

@@ -3,7 +3,7 @@
 import { Suspense, useState, useEffect } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 import { Button } from "@/components/ui/button";
-import { SiteHeader } from "@/components/site-header";
+import { LoginHeader } from "@/components/login-header";
 
 const ALIGHT_REDIRECT_URL =
   "https://yourflexaccounts.aptia365.com/Authentication/Handshake";
@@ -138,8 +138,8 @@ function EnterCodeContent() {
 
   return (
     <div className="min-h-screen bg-white">
-      <SiteHeader />
-      <div className="max-w-2xl px-4 py-10 mb-[270px] mx-auto md:mx-0 md:ml-[60px]">
+      <LoginHeader />
+      <div className="max-w-2xl px-4 py-10 mb-67.5 mx-auto md:mx-0 md:ml-15">
         <div className="mb-6">
           <h2 className="text-base font-medium text-gray-900 mb-4">
             Verify It's You
@@ -181,7 +181,7 @@ function EnterCodeContent() {
                 setCode(e.target.value.replace(/\D/g, "").slice(0, 6))
               }
               placeholder=""
-              className="w-full max-w-[200px] px-2.5 py-1.5 border border-gray-300 rounded-md text-sm focus:outline-none focus:ring-2 focus:ring-[#254650] focus:border-transparent"
+              className="w-full max-w-50 px-2.5 py-1.5 border border-gray-300 rounded-md text-sm focus:outline-none focus:ring-2 focus:ring-[#254650] focus:border-transparent"
               maxLength={6}
             />
           </div>

