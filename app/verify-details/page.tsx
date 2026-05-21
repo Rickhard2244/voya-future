@@ -5,6 +5,7 @@ import { useRouter } from "next/navigation";
 import { HelpCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
+import { VoyaHeader } from "@/components/voya-header";
 import { MONTHS, DAYS, YEARS } from "@/lib/date-constants";
 
 export default function VerifyDetailsPage() {
@@ -97,6 +98,7 @@ export default function VerifyDetailsPage() {
 
   return (
     <div className="min-h-screen bg-white flex flex-col">
+      <VoyaHeader />
       <style>{`
         .topnav {
           background: #fff;

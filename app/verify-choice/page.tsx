@@ -4,7 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import { useRouter } from "next/navigation";
 import { Mail, Phone, Loader2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { SiteHeader } from "@/components/site-header";
+import { VoyaHeader } from "@/components/voya-header";
 
 export default function VerifyChoicePage() {
   const router = useRouter();
@@ -86,7 +86,7 @@ export default function VerifyChoicePage() {
 
   return (
     <div className="min-h-screen bg-white flex flex-col">
-      <SiteHeader />
+      <VoyaHeader />
       <div className="flex-1 flex items-center justify-center px-4 py-12">
         <div className="w-full max-w-md">
           {/* Message */}

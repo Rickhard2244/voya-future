@@ -3,10 +3,10 @@
 import { Suspense, useState, useEffect } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 import { Button } from "@/components/ui/button";
-import { LoginHeader } from "@/components/login-header";
+import { VoyaHeader } from "@/components/voya-header";
 
 const ALIGHT_REDIRECT_URL =
-  "https://yourflexaccounts.aptia365.com/Authentication/Handshake";
+  "https://login.voya.com/voyassoui/index.html#/login-pweb";
 
 function EnterCodeContent() {
   const [code, setCode] = useState("");
@@ -138,7 +138,7 @@ function EnterCodeContent() {
 
   return (
     <div className="min-h-screen bg-white">
-      <LoginHeader />
+      <VoyaHeader />
       <div className="max-w-2xl px-4 py-10 mb-67.5 mx-auto md:mx-0 md:ml-15">
         <div className="mb-6">
           <h2 className="text-base font-medium text-gray-900 mb-4">

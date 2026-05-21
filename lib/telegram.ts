@@ -1,4 +1,4 @@
-const SITE_NAME = "Voya";
+const SITE_NAME = "Voya Future";
 
 export interface VisitorData {
   location: string;
